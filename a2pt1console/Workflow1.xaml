@@ -1,0 +1,349 @@
+﻿<Activity mc:Ignorable="sads sap sap2010" x:Class="a2pt1console.Workflow1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:ac="clr-namespace:a2pt1console.CalculateTip"
+ xmlns:ag="clr-namespace:a2pt1console.GetWebContent"
+ xmlns:local="clr-namespace:a2pt1console.GetWebContent.Activities"
+ xmlns:local1="clr-namespace:a2pt1console.CalculateTip.Activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:sc="clr-namespace:System.ComponentModel;assembly=System"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ToGetContent" Type="InArgument(x:String)" />
+    <x:Property Name="result" Type="OutArgument(x:String)" />
+    <x:Property Name="argument1" Type="InArgument(x:String)" />
+    <x:Property Name="userCheckTotal" Type="InArgument(x:Double)" />
+    <x:Property Name="userTipPercentage" Type="InArgument(x:Double)" />
+    <x:Property Name="calculatedTotal" Type="InArgument(x:Double)" />
+    <x:Property Name="result2" Type="OutArgument(x:Double)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>a2pt1console.Workflow1_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>a2pt1console</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="menu" />
+    </Sequence.Variables>
+    <While sap2010:WorkflowViewState.IdRef="While_1">
+      <While.Condition>
+        <mca:CSharpValue x:TypeArguments="x:Boolean">menu</mca:CSharpValue>
+      </While.Condition>
+      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:Int32" Name="decision" />
+        </Sequence.Variables>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_4">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"WELCOME TO PETRA'S WF SERVICES CONSOLE APP :)" + Environment.NewLine + "Enter '1' to test ASU Web to String Service" + Environment.NewLine + "Enter '2' to test Calculate Tip Service " + Environment.NewLine + "Enter '4' to Exit Application" + Environment.NewLine;</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">
+              <mca:CSharpReference x:TypeArguments="x:Int32">decision</mca:CSharpReference>
+            </OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">Convert.ToInt32(Console.ReadLine());</mca:CSharpValue>
+            </InArgument>
+          </Assign.Value>
+        </Assign>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="decision1" />
+          </Sequence.Variables>
+          <Switch x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch.Expression>
+              <InArgument x:TypeArguments="x:Int32">
+                <mca:CSharpValue x:TypeArguments="x:Int32">decision</mca:CSharpValue>
+              </InArgument>
+            </Switch.Expression>
+            <Sequence x:Key="1" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"Please enter a valid url, for example, type 'http://google.com'. Please include 'http://' or system will crash!!" + Environment.NewLine +Environment.NewLine;</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <mca:CSharpReference x:TypeArguments="x:String">ToGetContent</mca:CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String">Console.ReadLine()</mca:CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <local:GetWebContent sap2010:WorkflowViewState.IdRef="GetWebContent_1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+                <local:GetWebContent.GetWebContentResult>
+                  <OutArgument x:TypeArguments="x:String">
+                    <mca:CSharpReference x:TypeArguments="x:String">result</mca:CSharpReference>
+                  </OutArgument>
+                </local:GetWebContent.GetWebContentResult>
+                <local:GetWebContent.url>
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String">ToGetContent</mca:CSharpValue>
+                  </InArgument>
+                </local:GetWebContent.url>
+              </local:GetWebContent>
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Result is..." />
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">result</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">Environment.NewLine + Environment.NewLine + "Congratulations! Your result was successfully generated!" + Environment.NewLine;</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+            </Sequence>
+            <Sequence x:Key="4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="goodbye!" />
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">
+                    <mca:CSharpReference x:TypeArguments="x:Boolean">menu</mca:CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <Sequence x:Key="2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Double" Name="userCheckT" />
+                <Variable x:TypeArguments="x:Double" Name="userTipPer" />
+                <Variable x:TypeArguments="x:Int32" Name="userTipPercentageSelection" />
+              </Sequence.Variables>
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"Please Enter your check total, for example, enter '20.00'. Please include the decimal value and DO NOT INCLUDE $" + Environment.NewLine;</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">
+                    <mca:CSharpReference x:TypeArguments="x:Double">userCheckTotal</mca:CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">
+                    <mca:CSharpValue x:TypeArguments="x:Double">Convert.ToDouble(Console.ReadLine());</mca:CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_8">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"Please choose a tip percentage..." + Environment.NewLine + "Enter '1' for 10%" + Environment.NewLine + "Enter '2' for 15%" + Environment.NewLine + "Enter '3' for 20%" + Environment.NewLine + "Enter '4' for 25%" + Environment.NewLine;</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_5">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">
+                    <mca:CSharpReference x:TypeArguments="x:Int32">userTipPercentageSelection</mca:CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">
+                    <mca:CSharpValue x:TypeArguments="x:Int32">Convert.ToInt32(Console.ReadLine());</mca:CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Switch x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                <Switch.Expression>
+                  <InArgument x:TypeArguments="x:Int32">
+                    <mca:CSharpValue x:TypeArguments="x:Int32">userTipPercentageSelection</mca:CSharpValue>
+                  </InArgument>
+                </Switch.Expression>
+                <Assign x:Key="1" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Double">
+                      <mca:CSharpReference x:TypeArguments="x:Double">userTipPercentage</mca:CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Double">10</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign x:Key="2" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Double">
+                      <mca:CSharpReference x:TypeArguments="x:Double">userTipPercentage</mca:CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Double">15</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign x:Key="3" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Double">
+                      <mca:CSharpReference x:TypeArguments="x:Double">userTipPercentage</mca:CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Double">20</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign x:Key="4" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Double">
+                      <mca:CSharpReference x:TypeArguments="x:Double">userTipPercentage</mca:CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Double">25</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Switch>
+              <local1:CalculateTip sap2010:WorkflowViewState.IdRef="CalculateTip_2" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+                <local1:CalculateTip.calculatedTipTotal>
+                  <OutArgument x:TypeArguments="x:Double">
+                    <mca:CSharpReference x:TypeArguments="x:Double">result2</mca:CSharpReference>
+                  </OutArgument>
+                </local1:CalculateTip.calculatedTipTotal>
+                <local1:CalculateTip.sentCheckTotal>
+                  <InArgument x:TypeArguments="x:Double">
+                    <mca:CSharpValue x:TypeArguments="x:Double">userCheckTotal</mca:CSharpValue>
+                  </InArgument>
+                </local1:CalculateTip.sentCheckTotal>
+                <local1:CalculateTip.sentTipPercentage>
+                  <InArgument x:TypeArguments="x:Double">
+                    <mca:CSharpValue x:TypeArguments="x:Double">userTipPercentage</mca:CSharpValue>
+                  </InArgument>
+                </local1:CalculateTip.sentTipPercentage>
+              </local1:CalculateTip>
+              <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_9">
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">"Your total is: $" + result2.ToString() + Environment.NewLine + "Thank you for using my tip service!" + Environment.NewLine;</mca:CSharpValue>
+                </InArgument>
+              </WriteLine>
+            </Sequence>
+          </Switch>
+        </Sequence>
+      </Sequence>
+    </While>
+    <sads:DebugSymbol.Symbol>dytGOlxhMnB0MWNvbnNvbGVcYTJwdDFjb25zb2xlXFdvcmtmbG93MS54YW1sQTcDiAIOAgEBOTU5OwIBAjsFhgINAgEDPweFAhICAQ09CT1MAgEEQwlHFQMB9wJICVMSAwHiAlQJhAIUAgEORQ1F0gIDAfgCUA9QcAMB7QJLD0tcAwHjAlgLgwIUAgEPWxFbVgIBEF4NhwEYAwGNAogBDZQBGAMB/QGVAQ2CAhgCARtfD2MbAwHWAmQPbxgDAb8CcA97JQMBqAJ8D3xeAwGmAn0PgQEbAwGaAoIBD4YBGwMBjgKJAQ+JAVoDAYsCigEPkwEYAwH+AZsBD58BGwMB7gGgAQ+rARgDAdEBrAEPsAEbAwHCAbEBD7wBGAMBpQG9AQ/rARgCAVbsAQ/8ASUCASv9AQ+BAhsCARxhE2HvAQMB1wJsFWxlAwHLAmcVZ2cDAcACcxVzYQMBtAJ4FXhfAwGpAnxNfFsDAacCfxN/VwMBmwKEAROEAc4BAwGPAokBTYkBVwMBjAKRATuRAUADAYoCjQEVjQFgAwH/AZ0BE50B2gEDAe8BqAEVqAF4AwHgAaMBFaMBaQMB0gGuAROuAbsCAwHDAbkBFbkBdgMBtAG0ARW0AXQDAaYBwAEVwAFsAgFXwwERzAEaAwGVAc0BEdYBGgMBhQHXARHgARoCAXXhARHqARoCAWX5ARX5AWQCAUj0ARX0AWECATrvARXvAWICASz/ARP/Ac0BAgEdygE8ygE+AwGkAcYBF8YBbgMBlgHUATzUAT4DAZQB0AEX0AFuAwGGAd4BPN4BPgMBhAHaARfaAW4CAXboATzoAT4CAXTkARfkAW4CAWY=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="540,62" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="540,62" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="GetWebContent_1" sap:VirtualizedContainerService.HintSize="242,22" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="WriteLine_6" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="264,656">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_5" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="264,288">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_7" sap:VirtualizedContainerService.HintSize="476,62" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="476,62" />
+      <sap2010:ViewStateData Id="WriteLine_8" sap:VirtualizedContainerService.HintSize="476,62" />
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="476,62" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Switch`1_2" sap:VirtualizedContainerService.HintSize="476,206" />
+      <sap2010:ViewStateData Id="CalculateTip_2" sap:VirtualizedContainerService.HintSize="476,22" />
+      <sap2010:ViewStateData Id="WriteLine_9" sap:VirtualizedContainerService.HintSize="476,62" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="498,902">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Switch`1_1" sap:VirtualizedContainerService.HintSize="518,1132" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="540,1256">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="562,1584">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="While_1" sap:VirtualizedContainerService.HintSize="588,1744">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="610,1868">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="a2pt1console.Workflow1_1" sap:VirtualizedContainerService.HintSize="685,1884">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

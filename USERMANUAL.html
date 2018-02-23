@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<style>
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #eee;
+            font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+        }
+
+
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0 0 .5em;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+
+
+
+        h1 {
+            font-size: 2.25em;
+        }
+        /* 36px */
+
+        h2 {
+            font-size: 1.75em;
+        }
+        /* 28px */
+
+        h3 {
+            font-size: 1.375em;
+        }
+        /* 22px */
+
+        h4 {
+            font-size: 1.125em;
+        }
+        /* 18px */
+
+        h5 {
+            font-size: 1em;
+        }
+        /* 16px */
+
+        h6 {
+            font-size: .875em;
+        }
+        /* 14px */
+
+
+
+        p {
+            margin: 0 0 1.5em;
+            line-height: 1.5;
+        }
+
+
+
+        blockquote {
+            padding: 1em 2em;
+            margin: 0 0 2em;
+            border-left: 5px solid #eee;
+        }
+
+
+
+        hr {
+            height: 0;
+            margin-top: 1em;
+            margin-bottom: 2em;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+
+
+        table {
+            background-color: transparent;
+            border-spacing: 0;
+            border-collapse: collapse;
+            border-top: 1px solid #ddd;
+        }
+
+
+
+        th, td {
+            padding: .5em 1em;
+            vertical-align: top;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+
+        a:link {
+            color: royalblue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:focus {
+            color: black;
+        }
+
+        a:hover {
+            color: green;
+        }
+
+        a:active {
+            color: red;
+        }
+
+
+
+        /* -----------------------
+
+    Layout styles
+
+    ------------------------*/
+
+
+
+        .container {
+            max-width: 50em;
+            margin: 0 auto;
+         
+        }
+
+
+
+        .header {
+            color: white;
+            background: black;
+            padding: 1em 1.25em;
+        }
+
+
+
+        .header-heading {
+            margin: 0;
+           
+        }
+
+
+
+        .nav-bar {
+            background: #000;
+            padding: 0;
+        }
+
+
+
+        .content {
+            padding: 1em 1.25em;
+        }
+
+
+
+        .footer {
+            color: #fff;
+            background: #000;
+            padding: 1em 1.25em;
+        }
+
+
+
+        /* -----------------------
+
+    Nav
+
+    ------------------------*/
+
+
+
+        .nav {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+
+            .nav li {
+                display: inline;
+                margin: 0;
+            }
+
+
+
+            .nav a {
+                display: block;
+                padding: .7em 1.25em;
+                color: #fff;
+                text-decoration: none;
+                border-bottom: 1px solid gray;
+            }
+
+
+
+                .nav a:link {
+                    color: white;
+                }
+
+                .nav a:visited {
+                    color: white;
+                }
+
+
+
+                .nav a:focus {
+                    color: black;
+                    background-color: white;
+                }
+
+
+
+                .nav a:hover {
+                    color: white;
+                    background-color: green;
+                }
+
+
+
+                .nav a:active {
+                    color: white;
+                    background-color: red;
+                }
+
+
+
+        /* -----------------------
+
+    Single styles
+
+    ------------------------*/
+
+
+
+        .img-responsive {
+            max-width: 100%;
+        }
+
+
+
+        .btn {
+            color: #fff !important;
+            background-color: royalblue;
+            border-color: #222;
+            display: inline-block;
+            padding: .5em 1em;
+            margin-bottom: 0;
+            font-weight: 400;
+            line-height: 1.2;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-radius: .2em;
+            text-decoration: none;
+        }
+
+
+
+            .btn:hover {
+                color: #fff !important;
+                background-color: green;
+            }
+
+
+
+            .btn:focus {
+                color: #fff !important;
+                background-color: black;
+            }
+
+
+
+            .btn:active {
+                color: #fff !important;
+                background-color: red;
+            }
+
+
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+
+
+        .list-unstyled {
+            padding-left: 0;
+            list-style: none;
+        }
+
+
+
+        .list-inline {
+            padding-left: 0;
+            margin-left: -5px;
+            list-style: none;
+        }
+
+
+
+            .list-inline > li {
+                display: inline-block;
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+
+
+        /* -----------------------
+
+    Wide styles
+
+    ------------------------*/
+
+
+
+        @media (min-width: 42em) {
+
+            .header {
+                padding: 1.5em 3em;
+            }
+
+            .nav-bar {
+                padding: 1em 3em;
+            }
+
+            .content {
+                padding: 2em 3em;
+            }
+
+            .footer {
+                padding: 2em 3em;
+            }
+
+
+
+            .nav li {
+                display: inline;
+                margin: 0 1em 0 0;
+            }
+
+
+
+            .nav a {
+                display: inline;
+                padding: 0;
+                border-bottom: 0;
+            }
+        }
+</style>
+
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+   
+
+
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div class="container">
+
+            <h1 class="header-heading">Petra's Workflow Services</h1>
+
+        </div>
+
+    </div>
+
+   
+
+    <div class="content">
+
+        <div class="container">
+
+            <div class="main">
+
+        
+                <!-- Paragraphs -->
+
+                <h3>Introduction</h3>
+
+                <p> This project includes 1) A Workflow Console Application 2) ASU Web To String URL Service and 3) Tip Calculator Service. I developed the tip calculator service. For this service, the
+                    user enters a check total and a tip percentage. The calculated total is returned to the user.
+       
+
+                <hr>
+
+
+
+                <!-- Responsive images -->
+
+                <h3>Responsive images</h3>
+
+                <p>For images to be responsive (so that they will rescale to suit the width of the parent, use the <code>.img-responsive</code> class.</p>
+
+                <p><img class="img-responsive" src="http://placehold.it/800x350" alt=""></p>
+
+
+
+                <!-- Lists -->
+
+                <h3>Unordered list</h3>
+
+                <p>Unordered lists are used to markup lists where list items do not require numbering.</p>
+
+                <ul>
+
+                    <li>Ut wisi enim ad minim veniam</li>
+
+                    <li>Quis nostrud exerci tation</li>
+
+                    <li>Lamcorper suscipit lobortis nis</li>
+
+                    <li>Ut aliquip ex ea commodo consequat</li>
+
+                    <li>Duis autem vel eum iriure dolor</li>
+
+                </ul>
+
+                <hr>
+
+
+
+                <h3>Ordered list</h3>
+
+                <p>Ordered lists are used to markup lists where list items require numbering.</p>
+
+                <ol>
+
+                    <li>Hendrerit in vulputate velit esse</li>
+
+                    <li>Olestie consequat</li>
+
+                    <li>Vel illum dolore eu feugiat</li>
+
+                    <li>Nulla facilisis at vero eros</li>
+
+                    <li>Accumsan et iusto odio</li>
+
+                </ol>
+
+                <hr>
+
+
+
+                <h3>Unstyled list</h3>
+
+                <p>You can make the list unstyled using the <code>list-unstyled</code> class.</p>
+
+                <ul class="list-unstyled">
+
+                    <li>Ut wisi enim ad minim veniam</li>
+
+                    <li>Quis nostrud exerci tation</li>
+
+                    <li>Lamcorper suscipit lobortis nis</li>
+
+                    <li>Ut aliquip ex ea commodo consequat</li>
+
+                    <li>Duis autem vel eum iriure dolor</li>
+
+                </ul>
+
+                <hr>
+
+
+
+                <h3>Inline list</h3>
+
+                <p>You can make the list display inline using the <code>list-inline</code> class.</p>
+
+                <ul class="list-inline">
+
+                    <li>One</li>
+
+                    <li>Two</li>
+
+                    <li>Three</li>
+
+                    <li>Four</li>
+
+                </ul>
+
+                <hr>
+
+
+
+                <!-- Blockquotes -->
+
+                <h3>Blockquotes</h3>
+
+                <p>The blockquote element is used to markup long quotations. Ideally, content inside should be wrapped in paragraph elements.</p>
+
+                <blockquote>
+
+                    <p>The real names of our people were destroyed during slavery. The last name of my forefathers was taken from them when they were brought to America and made slaves, and then the name of the slave master was given, which we refuse, we reject that name today and refuse it. I never acknowledge it whatsoever.</p>
+
+                    <footer><a href="http://en.wikipedia.org/wiki/Malcolm_X">Malcolm X</a></footer>
+
+                </blockquote>
+
+                <hr>
+
+
+
+                <h3>Buttons</h3>
+
+                <p>You can apply the <code>btn</code> class to any element that requires a button style.</p>
+
+                <p><a href="#" class="btn">Submit</a></p>
+
+                <hr>
+
+
+
+                <!-- Tables -->
+
+                <h3>Tables</h3>
+
+                <p>Tables should be given the class of <code>table</code>.</p>
+
+                <table class="table table-striped">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>First Name</th>
+
+                            <th>Last Name</th>
+
+                            <th>Username</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <th scope="row">1</th>
+
+                            <td>Mark</td>
+
+                            <td>Otto</td>
+
+                            <td>@mdo</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th scope="row">2</th>
+
+                            <td>Jacob</td>
+
+                            <td>Thornton</td>
+
+                            <td>@fat</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th scope="row">3</th>
+
+                            <td>Larry</td>
+
+                            <td>the Bird</td>
+
+                            <td>@twitter</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        <div class="container">
+
+            &copy; Copyright 2015
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
